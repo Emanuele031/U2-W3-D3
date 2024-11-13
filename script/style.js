@@ -19,9 +19,9 @@ const getbBook = function(){
        
            
         
-
+        const rowOne = document.getElementById("book-list")
         bookObject.forEach(book => {
-
+        
         const col = document.createElement("div")
         col.className.add("cols-1 cols-md-3 g-4")
         col.innerHTML =  `
@@ -36,7 +36,7 @@ const getbBook = function(){
             </div>
         </div>
         `
-
+      rowOne.appendChild(col)
 
         const card = document.createElement("div")
         card.className = "card h-100"
