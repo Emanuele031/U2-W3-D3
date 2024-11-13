@@ -16,16 +16,26 @@ const getbBook = function(){
     })
     .then((bookObject) => {
         console.log(bookObject)
-        displayBooks(bookObject)
-    
-        const displayBooks = function(books){
+       
            
         
 
-        books.forEach(book => {
+        bookObject.forEach(book => {
 
         const col = document.createElement("div")
-        col.className = "col"
+        col.className.add("cols-1 cols-md-3 g-4")
+        col.innerHTML =  `
+        <div class="col">
+        <div class="card">
+            <img src=""https://images-na.ssl-images-amazon.com/images/I/91xrEMcvmQL.jpg"" class="card-img-top" alt=${book.title}>
+            <div class="card-body">
+              <h5 class="card-title">${book.title}</h5>
+              <p class="card-text"> Prezzo: €${book.price}</p>
+              <a href="#" class="btn btn-primary">Scarta</a>
+              <a href="#" class="btn btn-success">Compra ora</a>
+            </div>
+        </div>
+        `
 
 
         const card = document.createElement("div")
@@ -34,7 +44,7 @@ const getbBook = function(){
         const img = document.createElement("img")
         img.src ="https://images-na.ssl-images-amazon.com/images/I/91xrEMcvmQL.jpg"
         img.className = ("card-body")
-        img.alt = "Pandemic"
+        img.alt = `${book.title}`
         card.appendChild(img)
 
         const cardBody = document.createElement("div")
@@ -42,7 +52,7 @@ const getbBook = function(){
 
         const cardTitle = document.createElement("h5")
         cardTitle.className = "card-title"
-        cardTitle.textContent = book.title
+        cardTitle.textContent = `${book.title}`
         cardBody.appendChild(cardTitle)
 
 
@@ -72,19 +82,13 @@ const getbBook = function(){
         col.appendChild(card)
         bookList.appendChild(col)
     })
-}
+})
 .catch((err) => {
     alert("Errore")
     console.log(err)
-})
-    })
-    }
-
-    
-
-
-
-getbBook()
+ })
+}
+    getbBook()
 
 
 })
